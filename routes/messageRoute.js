@@ -3,6 +3,10 @@ const Message = require('../models/message');
 
 const router = express.Router();
 
+router.get('/create',(req,res)=>{
+    res.render('create');
+})
+
 router.post('/add-message',(req,res)=>{
     const message = new Message(req.body);
 
