@@ -32,6 +32,7 @@ router.get('/messages',(req,res) =>{
    });
 });
 
+//to get message by this specific id
 router.get('/messages/:id',(req,res)=>{
     const id = req.params.id;
     Message.findById(id)
@@ -47,6 +48,19 @@ router.get('/messages/:id',(req,res)=>{
 router.get('/', (req, res) => {
     res.redirect('/messages');
 });
+
+//route to delete a message
+router.delete('/messages/:id',(req,res) =>{
+    const id = req.params.id;
+
+    Message.findByIdAndDelete(id)
+    .then((result) =>{
+        res.json({redirect: '/'});
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+})
 
 
 

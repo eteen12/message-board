@@ -15,5 +15,24 @@
     <div class="delete-wrapper">
         <button class="delete" data-doc="<%= message._id %>">delete</button>
     </div>
+
+    <script>
+        const trash = document.querySelector('button.delete');
+
+        trash.addEventListener('click',(e) =>{
+            e.preventDefault();
+
+           const end = `/messages/${trash.dataset.doc}`;
+           
+           fetch(end, {
+            method: 'DELETE'
+           })
+           .then(response => response.json()) //if using {} these guys you have to explicitly say "return" 
+           .then((data)=>{
+                window.location.href = data.redirect;
+           })
+           .catch(err => console.log(err));
+        });
+    </script>
 </body>
 </html>
