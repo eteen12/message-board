@@ -11,8 +11,21 @@ const dbURI = `mongodb+srv://user:${process.env.DB_PASSWORD}@messages.lborio0.mo
 mongoose.connect(dbURI)
 .then(()=>{
     const port = 3000;
-
     app.listen(port);
-
     console.log(`listening on port ${port}`);
-});
+})
+.catch((err)=>{
+    console.log('error');
+})
+
+app.set('view engine', 'ejs');
+
+app.get('/',(req,res) =>{
+    console.log('hello');
+})
+
+
+//middlewear
+app.use(express.static('public'));
+app.use(express.urlencoded({extended: true}));
+app.use(morgan('dev'));
