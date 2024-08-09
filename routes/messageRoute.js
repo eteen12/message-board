@@ -32,13 +32,16 @@ router.get('/messages',(req,res) =>{
    });
 });
 
-router.get('/:id',(req,res)=>{
+router.get('/messages/:id',(req,res)=>{
     const id = req.params.id;
     Message.findById(id)
     .then((result)=>{
-        res.render()
+        res.render('viewMessage',{message: result});
     })
-})
+    .catch((err)=>{
+        console.log(err);
+    });
+});
 
 //automatically redirects from the localhost straight to messages
 router.get('/', (req, res) => {
