@@ -10,7 +10,14 @@
     </div>
     <div class="messages-wrapper">
          <h2>All Messages</h2>
-         <% %>
+         <% if (messages.length > 0) { %>
+            <% messages.forEach(message => {%>
+                <div class="message">
+                    <h3 class="msg-subject"><%= message.subject %></h3>
+                    <p class="msg-content"><%= message.message %></p>
+                </div>
+           <% })%>
+            <%}%>
     </div>
     <button><a href="/create">Reply</a></button>
 </body>

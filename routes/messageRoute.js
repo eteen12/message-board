@@ -19,4 +19,16 @@ router.post('/add-message',(req,res)=>{
     });
 });
 
+router.get('/messages',(req,res) =>{
+   Message.find().sort({ createdAt: -1})
+   .then((result)=>{
+    res.render('index',{messages: result});
+   })
+   .catch((err)=>{
+    console.log(err);
+   });
+});
+
+
+
 module.exports = router;
