@@ -23,7 +23,7 @@ router.post('/add-message',(req,res)=>{
 
 //renders
 router.get('/messages',(req,res) =>{
-   Message.find().sort({ createdAt: -1})
+   Message.find().sort({ createdAt: -1})//-1 means decending order...
    .then((result)=>{
     res.render('index',{messages: result});
    })
@@ -32,6 +32,15 @@ router.get('/messages',(req,res) =>{
    });
 });
 
+router.get('/:id',(req,res)=>{
+    const id = req.params.id;
+    Message.findById(id)
+    .then((result)=>{
+        res.render()
+    })
+})
+
+//automatically redirects from the localhost straight to messages
 router.get('/', (req, res) => {
     res.redirect('/messages');
 });
