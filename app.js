@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const messageRoute = require('./routes/messageRoute');
 
 require('dotenv').config();
 
@@ -21,11 +22,12 @@ mongoose.connect(dbURI)
 app.set('view engine', 'ejs');
 
 app.get('/',(req,res) =>{
-    console.log('hello');
+    res.render('index');
 })
-
 
 //middlewear
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 app.use(morgan('dev'));
+
+app.use(messageRoute);
