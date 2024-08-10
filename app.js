@@ -7,7 +7,8 @@ require('dotenv').config();
 
 const app = express();
 
-const dbURI = `mongodb+srv://user:${process.env.DB_PASSWORD}@messages.c2tzc.mongodb.net/`;
+const dbURI = `mongodb+srv://user:${process.env.DB_PASSWORD}@messages.c2tzc.mongodb.net/user?retryWrites=true&w=majority`;
+
 
 
 
