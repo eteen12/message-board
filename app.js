@@ -7,7 +7,9 @@ require('dotenv').config();
 
 const app = express();
 
-const dbURI = `mongodb+srv://user:${process.env.DB_PASSWORD}@messages.lborio0.mongodb.net/`;
+const dbURI = `mongodb+srv://user:${process.env.DB_PASSWORD}@messages.c2tzc.mongodb.net/`;
+
+
 
 mongoose.connect(dbURI)
 .then(()=>{
