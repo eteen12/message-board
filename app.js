@@ -29,4 +29,4 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 app.use(morgan('dev'));
 
-app.use('/messages',messageRoute);
+app.use(messageRoute);
