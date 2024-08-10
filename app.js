@@ -7,7 +7,7 @@ require('dotenv').config();
 
 const app = express();
 
-const dbURI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@messages.c2tzc.mongodb.net/yourdbname?retryWrites=true&w=majority`;
+const dbURI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@messages.c2tzc.mongodb.net/messages?retryWrites=true&w=majority`;
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
